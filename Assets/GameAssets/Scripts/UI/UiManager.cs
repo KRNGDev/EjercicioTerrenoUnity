@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
 
 public class UiManager : MonoBehaviour
 {
     public GameObject panelMenu;
     public GameObject botonMenu;
+    public String scene;
     public void ActivarPanel()
     {
         panelMenu.SetActive(true);
@@ -17,22 +19,18 @@ public class UiManager : MonoBehaviour
         panelMenu.SetActive(false);
         botonMenu.SetActive(true);
     }
-    public void EjecutarLoadScene()
+    public void EjecutarLoadScene(String scene)
     {
-        StartCoroutine(EsperarLoadScene());
-    }
-    public void EjecutarMenuPrincipal()
-    {
-        StartCoroutine(EsperarMenuPrincipal());
+        StartCoroutine(EsperarLoadScene(scene));
     }
 
-    public IEnumerator EsperarLoadScene()
+    public IEnumerator EsperarLoadScene(String scene)
     {
         // Esperar 2 segundos
         yield return new WaitForSeconds(0.5f);
 
         // Llamar a la función que deseas activar 
-        LoadScene();
+        LoadScene(scene);
     }
     IEnumerator EsperarMenuPrincipal()
     {
@@ -43,9 +41,9 @@ public class UiManager : MonoBehaviour
         MenuPrincipal();
     }
 
-    public void LoadScene()
+    public void LoadScene(String scena)
     {
-        SceneManager.LoadScene("Exterior");
+        SceneManager.LoadScene(scena);
     }
     public void MenuPrincipal()
     {
