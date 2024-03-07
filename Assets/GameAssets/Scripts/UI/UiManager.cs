@@ -9,6 +9,7 @@ public class UiManager : MonoBehaviour
     public GameObject panelMenu;
     public GameObject botonMenu;
     public String scene;
+    public float tiempoEpera = 0.2f;
     public void ActivarPanel()
     {
         panelMenu.SetActive(true);
@@ -27,7 +28,7 @@ public class UiManager : MonoBehaviour
     public IEnumerator EsperarLoadScene(String scene)
     {
         // Esperar 2 segundos
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(tiempoEpera);
 
         // Llamar a la función que deseas activar 
         LoadScene(scene);
