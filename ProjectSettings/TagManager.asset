@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Puerta
+  - Key
   layers:
   - Default
   - TransparentFX
