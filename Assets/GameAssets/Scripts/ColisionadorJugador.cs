@@ -14,24 +14,36 @@ public class ColisionadorJugador : MonoBehaviour
     {
         if (other.CompareTag("Puerta") && key == true)
         {
-            boton.SetActive(true);
+            if (boton != null)
+            {
+                boton.SetActive(true);
+            }
         }
         else if (other.CompareTag("Key"))
         {
             key = true;
-            consegirKey.SetActive(true);
+            if (consegirKey = null)
+            {
+                consegirKey.SetActive(true);
+            }
             Destroy(other.gameObject);
         }
         else
         {
-            mensajeKey.SetActive(true);
+            if (mensajeKey != null)
+            {
+                mensajeKey.SetActive(true);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Puerta"))
         {
-            boton.SetActive(false);
+            if (boton != null)
+            {
+                boton.SetActive(false);
+            }
             mensajeKey.SetActive(false);
         }
     }
