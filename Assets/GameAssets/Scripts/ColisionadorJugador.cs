@@ -22,7 +22,7 @@ public class ColisionadorJugador : MonoBehaviour
         else if (other.CompareTag("Key"))
         {
             key = true;
-            if (consegirKey = null)
+            if (consegirKey != null)
             {
                 consegirKey.SetActive(true);
             }
