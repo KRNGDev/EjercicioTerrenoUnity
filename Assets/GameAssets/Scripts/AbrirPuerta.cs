@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TerrainTools;
 
 public class AbrirPuerta : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class AbrirPuerta : MonoBehaviour
         if (player != null)
         {
             ColisionadorJugador jugador = player.GetComponent<ColisionadorJugador>();
+
             bool llave = jugador.key;
 
 

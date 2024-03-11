@@ -800,10 +800,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.33553696
-  m_Height: 2.2096624
+  m_Radius: 0.65567493
+  m_Height: 1.3170509
   m_Direction: 1
-  m_Center: {x: 0.02349472, y: 1.052033, z: 0}
+  m_Center: {x: 0.023495674, y: 0.64937115, z: -0.1050663}
 --- !u!114 &4665180042019070843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,10 +1007,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4640432148108009820}
   - component: {fileID: 4925441678607920354}
-  - component: {fileID: 7251758297068818352}
   m_Layer: 0
   m_Name: polySurface1
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1146,29 +1145,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.069505334, z: 0.9349258}
     m_Extent: {x: 1.1067262, y: 0.5284035, z: 0.95984817}
   m_DirtyAABB: 0
---- !u!136 &7251758297068818352
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2855408758882190955}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5878023
-  m_Height: 1.1756046
-  m_Direction: 1
-  m_Center: {x: 0.020887375, y: -0.5714187, z: 0.07383412}
 --- !u!1 &2905317029865536780
 GameObject:
   m_ObjectHideFlags: 0
