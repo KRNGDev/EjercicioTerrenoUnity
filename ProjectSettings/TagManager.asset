@@ -7,6 +7,8 @@ TagManager:
   - CinemachineTarget
   - Puerta
   - Key
+  - Suelo
+  - Enemigo
   layers:
   - Default
   - TransparentFX

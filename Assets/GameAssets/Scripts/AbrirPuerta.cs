@@ -15,7 +15,7 @@ public class AbrirPuerta : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (player != null)
+        if (other.gameObject.tag == "Player")
         {
             ColisionadorJugador jugador = player.GetComponent<ColisionadorJugador>();
 
