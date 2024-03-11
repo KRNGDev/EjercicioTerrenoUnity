@@ -6,7 +6,7 @@ using UnityEngine.Rendering.HighDefinition;
 public class Enemigo : MonoBehaviour
 {
 
-    public float velRotate = 200.0f;
+    public float velRotate = 40.0f;
     public float velMovimiento = 5.0f;
     public float minAngle;
     public float maxAngle;
@@ -48,7 +48,7 @@ public class Enemigo : MonoBehaviour
         {
             y = 1;
             x = 0.5f;
-            transform.Rotate(Vector3.up * 90f * Time.deltaTime);
+            transform.Rotate(Vector3.up * velRotate * Time.deltaTime);
             animator.SetFloat("X", x);
             animator.SetFloat("Y", y);
         }
@@ -68,12 +68,23 @@ public class Enemigo : MonoBehaviour
             {
 
                 case 1:
+                    y = 0;
+                    x = 0;
+
+                    animator.SetFloat("X", x);
+                    animator.SetFloat("Y", y);
                     moviendose = true;
+
                     Debug.Log(" el caso Se mueve");
 
                     break;
                 case 2:
                     Debug.Log("Gira y avanza");
+                    y = 0;
+                    x = 0;
+
+                    animator.SetFloat("X", x);
+                    animator.SetFloat("Y", y);
                     girando = true;
                     moviendose = false;
                     break;
@@ -83,6 +94,9 @@ public class Enemigo : MonoBehaviour
                     moviendose = false;
                     y = 0;
                     x = 0;
+
+                    animator.SetFloat("X", x);
+                    animator.SetFloat("Y", y);
                     break;
                 default:
                     Debug.LogError("Movimiento no reconocido");
@@ -91,7 +105,7 @@ public class Enemigo : MonoBehaviour
             }
 
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
         }
 
 
@@ -99,12 +113,12 @@ public class Enemigo : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag != suelo.tag)
-        {
+        Debug.Log("Colisiona");
+        moviendose = false;
+        girando = true;
 
-            transform.Rotate(0, Random.Range(minAngle, maxAngle), 0);
 
-        }
+
     }
     void OnDestroy()
     {
