@@ -37,7 +37,7 @@ public class Enemigo : MonoBehaviour
         if (moviendose)
         {
             transform.Translate(Vector3.forward * velMovimiento * Time.deltaTime);
-            x = 1;
+            y = 1;
 
             animator.SetFloat("X", x);
             animator.SetFloat("Y", y);
@@ -46,7 +46,7 @@ public class Enemigo : MonoBehaviour
 
         if (girando)
         {
-            y = 1;
+           
             x = 0.5f;
             transform.Rotate(Vector3.up * velRotate * Time.deltaTime);
             animator.SetFloat("X", x);
@@ -105,7 +105,7 @@ public class Enemigo : MonoBehaviour
             }
 
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
 
 
