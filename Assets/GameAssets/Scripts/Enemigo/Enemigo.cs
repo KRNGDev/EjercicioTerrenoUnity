@@ -59,7 +59,7 @@ public class Enemigo : MonoBehaviour
         Debug.Log("Se Activa el enumerator");
         while (activo)
         {
-            Debug.Log("Empienza el while");
+            // Debug.Log("Empienza el while");
             estado = Random.Range(1, 4);
             animator.SetFloat("X", 0);
             switch (estado)
@@ -73,11 +73,11 @@ public class Enemigo : MonoBehaviour
                     animator.SetFloat("Y", y);
                     moviendose = true;
 
-                    Debug.Log(" el caso Se mueve");
+                    //Debug.Log(" el caso Se mueve");
 
                     break;
                 case 2:
-                    Debug.Log("Gira y avanza");
+                    //Debug.Log("Gira y avanza");
                     y = 0;
                     x = 0;
 
@@ -87,7 +87,7 @@ public class Enemigo : MonoBehaviour
                     moviendose = false;
                     break;
                 case 3:
-                    Debug.Log("Quieto");
+                    //Debug.Log("Quieto");
                     girando = false;
                     moviendose = false;
                     y = 0;
@@ -111,7 +111,7 @@ public class Enemigo : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Colisiona");
+        // Debug.Log("Colisiona");
         moviendose = false;
         girando = true;
 
