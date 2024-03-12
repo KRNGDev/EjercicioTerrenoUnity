@@ -13,8 +13,7 @@ public class Enemigo : MonoBehaviour
     public GameObject suelo;
     public Animator animator;
     public float x, y;
-    private GameObject enemi;
-    private Rigidbody rbEnemi;
+
     private int estado;
     private bool moviendose = false;
     private bool girando = false;
@@ -23,8 +22,7 @@ public class Enemigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemi = GameObject.FindWithTag("Enemigo");
-        rbEnemi = enemi.GetComponent<Rigidbody>();
+
         animator = GetComponent<Animator>();
         suelo = GameObject.FindWithTag("Suelo");
         StartCoroutine(ActivarMovimientos());
@@ -46,7 +44,7 @@ public class Enemigo : MonoBehaviour
 
         if (girando)
         {
-           
+
             x = 0.5f;
             transform.Rotate(Vector3.up * velRotate * Time.deltaTime);
             animator.SetFloat("X", x);
