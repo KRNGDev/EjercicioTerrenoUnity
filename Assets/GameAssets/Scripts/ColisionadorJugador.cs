@@ -24,6 +24,7 @@ public class ColisionadorJugador : MonoBehaviour
             key = true;
             if (consegirKey != null)
             {
+                GetComponent<Inventario>().addItem(other.gameObject);
                 consegirKey.SetActive(true);
             }
             Destroy(other.gameObject);
