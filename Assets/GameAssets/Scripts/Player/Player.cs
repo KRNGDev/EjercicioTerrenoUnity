@@ -6,11 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Animator animator;
-    public float x, y;
+    private float x, y;
     public float fuerzaSalto = 10.0f;
     public float velRotate = 200.0f;
     public float velMovimiento = 5.0f;
-    public GameObject player;
+    private GameObject player;
     private Rigidbody rbPlayer;
     private bool estaEnSuelo = true;
     public AudioSource audioSource;
