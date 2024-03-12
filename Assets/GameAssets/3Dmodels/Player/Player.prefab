@@ -737,6 +737,7 @@ GameObject:
   - component: {fileID: 1040042233648255083}
   - component: {fileID: 2062098738065508627}
   - component: {fileID: 5163371105667072369}
+  - component: {fileID: 2877779798284966050}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -834,12 +835,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8327300817858879834}
-  x: 0
-  y: 0
   fuerzaSalto: 6
   velRotate: 200
   velMovimiento: 5
-  player: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!54 &1040042233648255083
 Rigidbody:
@@ -977,6 +975,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items: []
+--- !u!114 &2877779798284966050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836625825362809280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676d075a7ab9d6f49b628312d6be8fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imgLlave: {fileID: 0}
+  imgPocion: {fileID: 0}
+  imgComida: {fileID: 0}
 --- !u!1 &2847319609323813308
 GameObject:
   m_ObjectHideFlags: 0

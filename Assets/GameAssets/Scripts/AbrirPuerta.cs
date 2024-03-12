@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class AbrirPuerta : MonoBehaviour
 {
 
     public Animator animator;
+    public String nombreItemNecesario;
     private GameObject player;
     void Start()
     {
@@ -15,20 +17,20 @@ public class AbrirPuerta : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
-            ColisionadorJugador jugador = player.GetComponent<ColisionadorJugador>();
+            //ColisionadorJugador jugador = player.GetComponent<ColisionadorJugador>();
 
-            bool llave = jugador.key;
+            bool tienellave = other.gameObject.GetComponent<Inventario>().HasItem(nombreItemNecesario);
 
 
-            if (llave == true)
+            if (tienellave)
             {
                 animator.SetTrigger("Abrir");
             }
         }
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
 
             animator.SetTrigger("Apertura");
@@ -39,7 +41,7 @@ public class AbrirPuerta : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
 
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
 
             animator.SetTrigger("Cerrar");
