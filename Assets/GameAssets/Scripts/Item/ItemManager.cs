@@ -17,7 +17,7 @@ public class ItemManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Para Objetos
+        //Para añadir Objetos inventario
         switch (other.gameObject.name)
         {
             case "Llave":
@@ -46,27 +46,6 @@ public class ItemManager : MonoBehaviour
                 break;
         }
 
-        //Para componentes de escena
-        switch (other.gameObject.tag)
-        {
-            case "Puerta":
-                bool tieneItem = other.gameObject.GetComponent<Inventario>().HasItem(itemNecesarioAccion);
-                if (tieneItem)
-                    if (botonPuerta != null)
-                    {
-                        botonPuerta.SetActive(true);
-                    }
-                    else
-                    {
-
-                    }
-                break;
-
-
-            default:
-                print("no hay nada");
-                break;
-        }
 
 
     }

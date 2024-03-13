@@ -8,11 +8,10 @@ public class Enemigo : MonoBehaviour
 
     public float velRotate = 40.0f;
     public float velMovimiento = 5.0f;
-    public float minAngle;
-    public float maxAngle;
-    public GameObject suelo;
+    // public GameObject suelo;
     public Animator animator;
     public float x, y;
+    public float tiempoEspera;
 
     private int estado;
     private bool moviendose = false;
@@ -24,7 +23,7 @@ public class Enemigo : MonoBehaviour
     {
 
         animator = GetComponent<Animator>();
-        suelo = GameObject.FindWithTag("Suelo");
+        // suelo = GameObject.FindWithTag("Suelo");
         StartCoroutine(ActivarMovimientos());
 
     }
@@ -56,7 +55,7 @@ public class Enemigo : MonoBehaviour
     }
     IEnumerator ActivarMovimientos()
     {
-        Debug.Log("Se Activa el enumerator");
+        //Debug.Log("Se Activa el enumerator");
         while (activo)
         {
             // Debug.Log("Empienza el while");
@@ -103,7 +102,7 @@ public class Enemigo : MonoBehaviour
             }
 
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(tiempoEspera);
         }
 
 
