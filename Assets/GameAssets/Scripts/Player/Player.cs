@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private GameObject player;
     private Rigidbody rbPlayer;
     private bool estaEnSuelo = true;
-    public AudioSource audioSource;
+    public AudioClip audioSalto;
 
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         rbPlayer = player.GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -41,7 +41,11 @@ public class Player : MonoBehaviour
 
             rbPlayer.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
             estaEnSuelo = false;
-            audioSource.Play();
+            if (audioSalto != null)
+            {
+                GetComponent<AudioSource>().PlayOneShot(audioSalto);
+            }
+
 
         }
 

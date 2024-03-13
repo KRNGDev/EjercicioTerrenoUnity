@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,23 +8,16 @@ public class ItemManager : MonoBehaviour
     public GameObject imgLlave;
     public GameObject imgPocion;
     public GameObject imgComida;
+    public GameObject botonPuerta;
+
+    public String itemNecesarioAccion;
+
+
 
 
     void OnTriggerEnter(Collider other)
     {
-        /* if (other.gameObject.name == "LlavePoder")
-         {
-
-             //1. Desaparece la llave
-             Destroy(other.gameObject);
-
-             //2. Aparece en la interfaz de usuario
-             // imagenLlave.SetActive(true);
-
-             //3. Añadimos al inventario
-             GetComponent<Inventario>().addItem(other.gameObject);//Añadir la llave al inventario
-         }*/
-
+        //Para Objetos
         switch (other.gameObject.name)
         {
             case "Llave":
@@ -51,5 +45,29 @@ public class ItemManager : MonoBehaviour
                 print("no hay nada");
                 break;
         }
+
+        //Para componentes de escena
+        switch (other.gameObject.tag)
+        {
+            case "Puerta":
+                bool tieneItem = other.gameObject.GetComponent<Inventario>().HasItem(itemNecesarioAccion);
+                if (tieneItem)
+                    if (botonPuerta != null)
+                    {
+                        botonPuerta.SetActive(true);
+                    }
+                    else
+                    {
+
+                    }
+                break;
+
+
+            default:
+                print("no hay nada");
+                break;
+        }
+
+
     }
 }
