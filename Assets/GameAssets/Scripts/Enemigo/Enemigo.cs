@@ -72,7 +72,7 @@ public class Enemigo : MonoBehaviour
                     this.gameObject.GetComponent<Animator>().SetFloat("Y", y);
                     moviendose = true;
 
-                    Debug.Log(" el caso Se mueve");
+                    // Debug.Log(" el caso Se mueve");
 
                     break;
                 case 2:

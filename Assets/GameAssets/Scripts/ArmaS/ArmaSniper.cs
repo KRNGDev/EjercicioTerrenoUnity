@@ -6,9 +6,9 @@ public class ArmaSniper : MonoBehaviour
 {
     public int capacidadCargador = 100;
     public int municion = 0;
-    public GameObject prfabBala;
+
     public Transform transforEmisor;
-    public Transform transformOrigendelRaycast;
+    public Transform transformOrigenRaycast;
     public float fuerzaDisparo = 50.0f;
     public AudioClip audioSinBalas;
     public AudioClip audioDisparo;
@@ -25,15 +25,24 @@ public class ArmaSniper : MonoBehaviour
             {
                 GetComponent<AudioSource>().PlayOneShot(audioSinBalas);
             }
-
         }
-
     }
     public void Disparar()
     {
         municion--;
+        RaycastHit hitInfo;
+        bool hayImpacto = Physics.Raycast(transformOrigenRaycast.position, transformOrigenRaycast.forward, out hitInfo);
+        if (hayImpacto)
+        {
+            if (hitInfo.transform.CompareTag("Enemigo"))
+            {
+                hitInfo.transform.GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+                hitInfo.transform.GetComponentInChildren<Rigidbody>().AddForce(Vector3.up * fuerzaDisparo);
 
-        Physics.Raycast(transformOrigendelRaycast.position, transformOrigendelRaycast.forward, out hit);
+            }
+        }
+
+
         if (audioDisparo != null)
         {
             GetComponent<AudioSource>().PlayOneShot(audioDisparo);
