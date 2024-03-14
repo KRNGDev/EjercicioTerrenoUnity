@@ -29,16 +29,13 @@ public class Bomba : MonoBehaviour
 
                 collider.GetComponent<Rigidbody>().AddExplosionForce(
                     fuerzahorizontal,
-                 transform.position,
-                 radioExpansion,
-                  fuerzaVertical);
+                    transform.position,
+                    radioExpansion,
+                    fuerzaVertical);
                 Instantiate(explosion, this.transform.position, this.transform.rotation);
 
                 Destroy(this.gameObject);
             }
-
-
         }
-
     }
 }
