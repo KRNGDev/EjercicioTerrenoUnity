@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 
-public class Arma : MonoBehaviour
+public class ArmaSniper : MonoBehaviour
 {
     public int capacidadCargador = 100;
     public int municion = 0;
     public GameObject prfabBala;
     public Transform transforEmisor;
+    public Transform transformOrigendelRaycast;
     public float fuerzaDisparo = 50.0f;
     public AudioClip audioSinBalas;
     public AudioClip audioDisparo;
@@ -17,7 +17,6 @@ public class Arma : MonoBehaviour
     {
         if (municion > 0)
         {
-
             Disparar();
         }
         else
@@ -34,11 +33,9 @@ public class Arma : MonoBehaviour
     {
         municion--;
 
-        GameObject bala = Instantiate(prfabBala, transforEmisor.position, transforEmisor.rotation);
-        bala.GetComponent<Rigidbody>().AddForce(bala.transform.forward * fuerzaDisparo);
+        Physics.Raycast(transformOrigendelRaycast.position, transformOrigendelRaycast.forward, out hit);
         if (audioDisparo != null)
         {
-
             GetComponent<AudioSource>().PlayOneShot(audioDisparo);
         }
 
@@ -53,5 +50,4 @@ public class Arma : MonoBehaviour
         municion = capacidadCargador;
 
     }
-
 }

@@ -8,8 +8,8 @@ public class Enemigo : MonoBehaviour
 
     public float velRotate = 40.0f;
     public float velMovimiento = 5.0f;
-    // public GameObject suelo;
-    public Animator animator;
+    public GameObject suelo;
+
     public float x, y;
     public float tiempoEspera;
 
@@ -22,8 +22,7 @@ public class Enemigo : MonoBehaviour
     void Start()
     {
 
-        animator = GetComponent<Animator>();
-        // suelo = GameObject.FindWithTag("Suelo");
+
         StartCoroutine(ActivarMovimientos());
 
     }
@@ -34,10 +33,11 @@ public class Enemigo : MonoBehaviour
         if (moviendose)
         {
             transform.Translate(Vector3.forward * velMovimiento * Time.deltaTime);
-            y = 1;
+            y = 1f;
+            ;
 
-            animator.SetFloat("X", x);
-            animator.SetFloat("Y", y);
+            //this.gameObject.GetComponent<Animator>().SetFloat("X", x);
+            this.gameObject.GetComponent<Animator>().SetFloat("Y", y);
         }
 
 
@@ -46,8 +46,8 @@ public class Enemigo : MonoBehaviour
 
             x = 0.5f;
             transform.Rotate(Vector3.up * velRotate * Time.deltaTime);
-            animator.SetFloat("X", x);
-            animator.SetFloat("Y", y);
+            this.gameObject.GetComponent<Animator>().SetFloat("X", x);
+            // this.gameObject.GetComponent<Animator>().SetFloat("Y", y);
         }
 
 
@@ -55,33 +55,33 @@ public class Enemigo : MonoBehaviour
     }
     IEnumerator ActivarMovimientos()
     {
-        //Debug.Log("Se Activa el enumerator");
+        // Debug.Log("Se Activa el enumerator");
         while (activo)
         {
             // Debug.Log("Empienza el while");
             estado = Random.Range(1, 4);
-            animator.SetFloat("X", 0);
+            this.gameObject.GetComponent<Animator>().SetFloat("X", 0);
             switch (estado)
             {
 
                 case 1:
-                    y = 0;
-                    x = 0;
+                    y = 0f;
+                    x = 0f;
 
-                    animator.SetFloat("X", x);
-                    animator.SetFloat("Y", y);
+                    this.gameObject.GetComponent<Animator>().SetFloat("X", x);
+                    this.gameObject.GetComponent<Animator>().SetFloat("Y", y);
                     moviendose = true;
 
-                    //Debug.Log(" el caso Se mueve");
+                    Debug.Log(" el caso Se mueve");
 
                     break;
                 case 2:
                     //Debug.Log("Gira y avanza");
-                    y = 0;
-                    x = 0;
+                    y = 0f;
+                    x = 0f;
 
-                    animator.SetFloat("X", x);
-                    animator.SetFloat("Y", y);
+                    this.gameObject.GetComponent<Animator>().SetFloat("X", x);
+                    this.gameObject.GetComponent<Animator>().SetFloat("Y", y);
                     girando = true;
                     moviendose = false;
                     break;
@@ -89,11 +89,11 @@ public class Enemigo : MonoBehaviour
                     //Debug.Log("Quieto");
                     girando = false;
                     moviendose = false;
-                    y = 0;
-                    x = 0;
+                    y = 0f;
+                    x = 0f;
 
-                    animator.SetFloat("X", x);
-                    animator.SetFloat("Y", y);
+                    this.gameObject.GetComponent<Animator>().SetFloat("X", x);
+                    this.gameObject.GetComponent<Animator>().SetFloat("Y", y);
                     break;
                 default:
                     Debug.LogError("Movimiento no reconocido");
@@ -110,10 +110,12 @@ public class Enemigo : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        // Debug.Log("Colisiona");
-        moviendose = false;
-        girando = true;
-
+        if (other.gameObject.tag != "Suelo")
+        {
+            // Debug.Log("Colisiona");
+            moviendose = false;
+            girando = true;
+        }
 
 
     }

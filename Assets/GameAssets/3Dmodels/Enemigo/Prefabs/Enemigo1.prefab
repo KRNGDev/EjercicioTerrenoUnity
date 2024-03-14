@@ -148,12 +148,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velRotate: 50
   velMovimiento: 5
-  minAngle: 0
-  maxAngle: 0
-  suelo: {fileID: 0}
-  animator: {fileID: 0}
   x: 0
   y: 0
+  tiempoEspera: 2
 --- !u!136 &735222154865100099
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -203,7 +200,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!4 &8291686569084435606 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -123543796239651709, guid: df7269df27267e248a4e97f36eb7c4a3, type: 3}
